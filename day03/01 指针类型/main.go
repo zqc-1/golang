@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"reflect"
-)
+import "fmt"
 
 func main() {
 	//&变量：获取变量地址
@@ -53,12 +50,18 @@ func main() {
 	*y = 30
 	fmt.Println(z)//10*/
 
-	var a = 100
-	var b = &a //*int
-	var c = &b //**int
-	fmt.Println(reflect.TypeOf(c))
-	**c = 200
-	fmt.Println(a)
-	//fmt.Println(b) //a的地址
-	//fmt.Println(c) //b的地址
+	//var a = 100
+	//var b = &a //*int
+	//var c = &b //**int
+	//fmt.Println(reflect.TypeOf(c))
+	//**c = 200
+	//fmt.Println(a)
+	////fmt.Println(b) //a的地址
+	////fmt.Println(c) //b的地址
+
+	p1 := 1
+	p2 := &p1
+	*p2++
+	fmt.Println(p1)
+	fmt.Println(*p2)
 }
