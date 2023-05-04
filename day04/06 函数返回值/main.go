@@ -5,6 +5,7 @@ import (
 	"reflect"
 )
 
+// 无返回值
 func printLing(n int) {
 	// 打印菱形
 	// 层数
@@ -40,16 +41,37 @@ func sum(x, y int) {
 	fmt.Println(res)
 }
 
-// 不限个护士加法器
-func add(s ...int) {
+func add(a, b int) int {
+	c := a + b
+	return c //函数终止语句
+}
+
+// 返回值命名
+func add2(s ...int) (z int) {
 	fmt.Println(s, reflect.TypeOf(s))
 	var res = 0
 	for _, v := range s {
 		res += v
 	}
-	fmt.Println(res)
+	return
+}
+
+func login(user, pwd string) (string, string) {
+	if user == "root" && pwd == "root" {
+		return "登录成功！", user
+	} else {
+		return "账户名或密码错误！", ""
+	}
 }
 
 func main() {
+	res := add(1, 2)
+	fmt.Println(res)
+	add(res, 100)
 
+	msg, user := login("root", "root")
+	fmt.Println(msg, user)
+
+	//返回值命名
+	fmt.Println(add2(1, 2, 3))
 }
